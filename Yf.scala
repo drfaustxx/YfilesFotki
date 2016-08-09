@@ -1,15 +1,11 @@
 package Yf
-/**
-  * Created by adel on 24.07.16.
-  */
 
 import java.io.File
 
-
-
-
 object Yf extends App {
 
+
+  val dirname= "/Users/adel/Yandex.Disk.localized/Фотокамера/"
 
   def moveFiles(directoryName: String) = {
 
@@ -20,15 +16,13 @@ object Yf extends App {
 
     def move(file: String, newdir: String) = {
 
-      var oldFile = new File(directoryName + file)
-      var newFile = new File(directoryName + newdir +"/"+ file)
+      val oldFile = new File(directoryName + file)
+      val newFile = new File(directoryName + newdir +"/"+ file)
       newFile.getParentFile.mkdirs()
-
       oldFile.renameTo(newFile)
-
     }
 
-    var dir : Array[String] = getListOfFiles(directoryName)
+    val dir : Array[String] = getListOfFiles(directoryName)
 
     for (c <- dir.indices) {
       if (dir(c).length>10) {
@@ -39,13 +33,6 @@ object Yf extends App {
 
   }
 
-
-
-  val dirname= "/Users/adel/Yandex.Disk.localized/Фотокамера/"
-  //val dirname= "/Users/adel/Фотокамера/"
-
   moveFiles(dirname)
-
-
 
 }
